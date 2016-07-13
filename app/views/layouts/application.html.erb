@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TestProject</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<% if user_signed_in? %>
+	<p style="float:right">Active: <%=current_user.email%>/<%=current_user.role%>
+		<%= link_to "/users/sign_out" ,:method=>"delete" do %>
+		  <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+		<% end %>
+	</p>
+	<% end%>
+<div class="alert-warning" role="alert" style="display:block;margin-bottom:20px; color:red">
+  <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>        
+</div>     
+<%= yield %>
+</body>
+</html>
