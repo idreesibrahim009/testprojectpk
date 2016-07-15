@@ -167,6 +167,7 @@ DEPENDENCIES
   cancancan (~> 1.10)
   coffee-rails (~> 4.1.0)
   devise
+  execjs
   faker
   jbuilder (~> 2.0)
   jquery-rails
